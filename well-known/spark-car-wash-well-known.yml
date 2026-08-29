@@ -1,0 +1,77 @@
+generated: '2026-08-28'
+method: probed
+source: live GET probes of https://sparkcarwash.com/.well-known/*
+note: >-
+  Every /.well-known/ path probed returned 404. The host is NOT a catch-all: an
+  unregistered control path returned 404 with the same WordPress theme 404 body,
+  so these are genuine absences rather than SPA soft-200s. Recorded as an
+  absence — no WellKnown and no SecurityTxt pointer is emitted in apis.yml,
+  because the provider serves none of these documents.
+hit_count: 0
+hosts:
+- host: https://sparkcarwash.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+soft_404_control:
+  path: /this-path-should-404-abc123
+  status: 404
+  bytes: 124807
+  conclusion: >-
+    Host returns a true 404 status for unknown paths, so the 404s above are
+    trustworthy negatives.
+x-contract-discovery:
+  summary: >-
+    STEP 0b contract discovery run against the only host Spark Car Wash operates
+    (sparkcarwash.com). No OpenAPI, Swagger, GraphQL, AsyncAPI, MCP or A2A
+    surface exists. The corporate site is WordPress; its stock /wp-json/ REST
+    index is served openly and carries three vendor-integration namespaces
+    (Braze, Shopify, Snowflake) wired for the company's own marketing, commerce
+    and analytics plumbing. That is CMS/back-office integration wiring, not a
+    published developer API — it is undocumented, unversioned, unadvertised and
+    has no reference, so it is deliberately NOT registered as an apis[] entry.
+  probes:
+  - url: https://sparkcarwash.com/openapi.json
+    status: 404
+  - url: https://sparkcarwash.com/openapi.yaml
+    status: 404
+  - url: https://sparkcarwash.com/swagger.json
+    status: 404
+  - url: https://sparkcarwash.com/v1/openapi.json
+    status: 404
+  - url: https://sparkcarwash.com/api-docs
+    status: 404
+  - url: https://sparkcarwash.com/docs
+    status: 404
+  - url: https://sparkcarwash.com/redoc
+    status: 404
+  - url: https://sparkcarwash.com/graphql
+    status: 404
+  - url: https://sparkcarwash.com/llms.txt
+    status: 404
+  - url: https://sparkcarwash.com/wp-json/
+    status: 200
+    note: >-
+      WordPress core REST index, 463 routes, of which the non-stock namespaces
+      are sparkcarwash, braze and snowflake. Endpoint paths intentionally not
+      enumerated here.
+  - url: https://sparkcw.patheon.app/
+    status: 200
+    note: >-
+      Third-party membership portal (Patheon). Not a Spark Car Wash host; every
+      path on it, including /.well-known/agent-card.json and /openapi.json,
+      returns an identical 200 text/html SPA shell of 11,246 bytes, which is the
+      classic catch-all false positive. No contract claimed or saved from it,
+      and per STEP 0c any spec found there would belong to Patheon, not Spark.

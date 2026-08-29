@@ -1,17 +1,38 @@
 aid: spark-car-wash
 name: Spark Car Wash
-description: 'Spark Car Wash is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Spark Car Wash is an express-tunnel car wash operator running a network of
+  high-throughput drive-thru locations across New Jersey, Pennsylvania and New
+  York. The company pairs a conveyorized tunnel — neoglide washers, custom
+  non-acidic cleaning formulas, high-intensity dryers, and a closed-loop water
+  reclamation and filtration system — with self-service "Spark Park" terminals
+  offering multi-nozzle vacuums, anti-scratch towels and automated mat cleaners.
+  Revenue is driven by unlimited-wash memberships sold in Standard, Select and
+  Signature tiers, with additional-vehicle discounts, alongside single-wash
+  purchases. Membership signup and account management run on a third-party
+  hosted portal rather than a Spark-operated application. Spark Car Wash is a
+  physical services operator: it publishes no developer program, no public API,
+  no SDKs and no machine-readable contract of any kind.
 url: https://raw.githubusercontent.com/api-evangelist/spark-car-wash/refs/heads/main/apis.yml
+image: https://sparkcarwash.com/wp-content/uploads/2023/11/SPARK-Footer-Logo.png
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
 x-tier-reason: harvest
+x-harvest-listing: https://forgeglobal.com/spark-car-wash_stock/
 specificationVersion: '0.20'
 created: '2026-08-28'
 modified: '2026-08-28'
 tags:
 - Company
+- Car Wash
+- Automotive Services
+- Consumer Services
+- Retail
+- Subscriptions
+- Memberships
+- New Jersey
+- United States
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +40,49 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/spark-car-wash-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/spark-car-wash_stock/
+  url: https://sparkcarwash.com/
+- type: Blog
+  url: https://sparkcarwash.com/blog/
+- type: Support
+  url: https://sparkcarwash.com/contact-us/
+- type: FAQ
+  url: https://sparkcarwash.com/faq-old2/
+- type: SignUp
+  url: https://sparkcw.patheon.app/
+- type: TermsOfService
+  url: https://sparkcarwash.com/terms-conditions/
+- type: PrivacyPolicy
+  url: https://sparkcarwash.com/privacy-policy/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/spark-car-wash
+- type: LLMsTxt
+  url: llms/spark-car-wash-llms.txt
+x-enrichment:
+  date: '2026-08-28'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Spark Car Wash operates physical express-tunnel car wash sites in NJ/PA/NY and
+    sells unlimited-wash memberships through a third-party portal at
+    sparkcw.patheon.app; its own WordPress site 404s on every OpenAPI, GraphQL,
+    llms.txt and /.well-known/ path, so there is no developer program or contract
+    to profile.
+  evidence:
+  - url: https://sparkcarwash.com/openapi.json
+    status: 404
+  - url: https://sparkcarwash.com/graphql
+    status: 404
+  - url: https://sparkcarwash.com/.well-known/agent-card.json
+    status: 404
+  - url: https://sparkcarwash.com/llms.txt
+    status: 404
+  - url: https://sparkcarwash.com/.well-known/security.txt
+    status: 404
+  checked: '2026-08-28'
