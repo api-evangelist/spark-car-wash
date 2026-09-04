@@ -14,6 +14,18 @@ description: >-
   physical services operator: it publishes no developer program, no public API,
   no SDKs and no machine-readable contract of any kind.
 url: https://raw.githubusercontent.com/api-evangelist/spark-car-wash/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - security
+  generated: '2026-09-02'
+  method: derived
 image: https://sparkcarwash.com/wp-content/uploads/2023/11/SPARK-Footer-Logo.png
 x-type: company
 x-source: harvest:secondary-market
